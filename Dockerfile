@@ -8,6 +8,7 @@ COPY lib/nginx-1.15.1/ /nginx-1.15.1
 COPY lib/nginx-rtmp-module-dev/ /nginx-rtmp-module-dev
 
 RUN cd nginx-1.15.1 && ./configure --with-http_ssl_module --add-module=../nginx-rtmp-module-dev \
-	&& make && make install && mkdir -p /tmp/hls
+	&& make && make install && mkdir -p /tmp/hls && ln -s /usr/local/nginx/sbin/nginx /usr/local/bin/nginx
 
 COPY nginx.conf /usr/local/nginx/conf/nginx.conf
+COPY www/ /www
