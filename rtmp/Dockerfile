@@ -11,4 +11,5 @@ RUN cd nginx-1.15.1 && ./configure --with-http_ssl_module --add-module=../nginx-
 	&& make && make install && mkdir -p /tmp/hls && ln -s /usr/local/nginx/sbin/nginx /usr/local/bin/nginx
 
 COPY nginx.conf /usr/local/nginx/conf/nginx.conf
-COPY www/ /www
+
+CMD nginx
